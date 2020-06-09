@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INSPINIA | Main view</title>
+<link href="/business/css/private.css" rel="stylesheet">
+<link href="/business/css/bootstrap.min.css" rel="stylesheet">
+<link href="/business/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="/business/css/animate.css" rel="stylesheet">
+<link href="/business/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="/business/js/plugins/bootstrap-table-1.15.3/bootstrap-table.min.css">
+ <link rel="stylesheet" href="/business/js/plugins/validator/bootstrapValidator.min.css">
+</head>
+<body style="overflow: hidden;">
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav metismenu" id="side-menu">
+					<li class="nav-header">
+						<div class="dropdown profile-element">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<span class="block m-t-xs font-bold">Example user</span>
+								<span class="text-muted text-xs block">
+									menu
+									<b class="caret"></b>
+								</span>
+							</a>
+							<ul class="dropdown-menu animated fadeInRight m-t-xs">
+								<li>
+									<a class="dropdown-item" href="login.html">Logout</a>
+								</li>
+							</ul>
+						</div>
+						<div class="logo-element">IN+</div>
+					</li>
+					
+				</ul>
+			</div>
+		</nav>
+		<div id="page-wrapper" class="gray-bg">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+					<div class="col-lg-10">
+						<div class="navbar-header">
+							<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+								<i class="fa fa-bars"></i>
+							</a>
+						</div>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="index.html">主页</a>
+							</li>
+							<li class="breadcrumb-item">
+								<a>系统管理</a>
+							</li>
+							<li class="breadcrumb-item active">
+								<strong>会员管理</strong>
+							</li>
+						</ol>
+					</div>
+					<ul class="nav navbar-top-links navbar-right">
+						<li>
+							<a href="#">
+								<i class="fa fa-sign-out"></i>
+								注销
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="wrapper wrapper-content animated fadeInRight">
+				<div class="row">
+					<div class="col-lg-12">
+						<div id="toolbar-btn" class="btn-group pull-left" style="padding-bottom: 0px;">
+							<button id="main_add"  type="button" class="btn btn-primary" style="display: none1" data-toggle="modal" data-target="#main_add_windows">
+								<span class="fa fa-plus"></span>
+								<span>增&nbsp;加</span>
+							</button>
+							<button id="main_update"  type="button" class="btn btn-primary" style="display: none1" data-toggle="modal" data-target="#main_update_windows">
+								<span class="fa fa-joomla"></span>
+								<span>更&nbsp;新</span>
+							</button>
+							<button id="main_delete"  type="button" class="btn btn-primary" style="display: none1" data-toggle="modal" data-target="#main_delete_windows">
+								<span class="fa fa-plus-square btn-icon-space" aria-hidden="true"></span>
+								<span>删&nbsp;除</span>
+							</button>
+							<button id="main_search"  type="button" class="btn btn-primary" style="display: none1" data-toggle="modal" data-target="#main_delete_windows">
+								<span class="fa fa-plus-square btn-icon-space" aria-hidden="true"></span>
+								<span>查&nbsp;询</span>
+							</button>
+						</div>
+						<table id="table"></table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- add -->
+	<div class="modal inmodal fade" id="main_add_windows" tabindex="-1" role="document" aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="chat-element">
+                         <small class="pull-left modal-title">添加会员 <span id='msg' style="color: red;"></span></small>
+                        <div class="media-body ">
+                            <small class="pull-right text-navy">
+                            <button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span>
+								<span class="sr-only">Close</span>
+							</button>
+                            </small>
+                   
+                        </div>
+                    </div>
+				</div>
+				<div class="modal-body">
+					<form method="post" data-bv-message="This value is not valid" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+						data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+					>
+						<div class="row">
+							<!-- userName start -->
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="bean_userName">
+										<span>会员姓名</span>
+										<span class="help-from-block">
+											<!-- 验证说明 -->
+										</span>
+									</label>
+									<input type="text" class="form-control" id="bean_userName" name="bean.name" placeholder="" data-bv-notempty-message="分类名称不能为空"
+										pattern="^(?!_)(?!.*?_$)[\u4e00-\u9fa5]{2,10}$" data-bv-regexp-message="分类名称输入格式不对[2~10个汉字]"
+									/>
+								</div>
+							</div>
+							<!-- userName end -->
+							<!-- accessId start -->
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="bean_accessId">
+										<span>登录名</span>
+										<span class="help-from-block">
+											<!-- 验证说明 -->
+										</span>
+									</label>
+									<input type="text" class="form-control" id="bean_accessId" name="bean.access" placeholder="" data-bv-notempty-message="分类名称不能为空"
+										pattern="^(?!_)(?!.*?_$)[\u4e00-\u9fa5]{2,10}$" data-bv-regexp-message="分类名称输入格式不对[2~10个汉字]"
+									/>
+								</div>
+							</div>
+							<!-- accessId end -->
+							<!-- password start -->
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="bean_password">
+										<span>用户密码</span>
+										<span class="help-from-block">
+											<!-- 验证说明 -->
+										</span>
+									</label>
+									<input type="text" class="form-control" id="bean_password" name="bean.password" placeholder="" data-bv-notempty-message="分类名称不能为空"
+										pattern="^(?!_)(?!.*?_$)[\u4e00-\u9fa5]{2,10}$" data-bv-regexp-message="分类名称输入格式不对[2~10个汉字]"
+									/>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="bean_password">
+										<span>联系电话</span>
+										<span class="help-from-block">
+											<!-- 验证说明 -->
+										</span>
+									</label>
+									<input type="text" class="form-control" id="bean_password" name="bean.phone" placeholder="" data-bv-notempty-message="分类名称不能为空"
+										pattern="^(?!_)(?!.*?_$)[\u4e00-\u9fa5]{2,10}$" data-bv-regexp-message="分类名称输入格式不对[2~10个汉字]"
+									/>
+								</div>
+							</div>
+							<!-- password end -->
+							<!-- mobilePhone start -->
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="bean_remarks">
+										<span>备注</span>
+										<span class="help-from-block">
+											<!-- 验证说明 -->
+										</span>
+									</label>
+									<input type="text" class="form-control" id="bean_remarks" name="bean.remarks" placeholder="" data-bv-notempty-message="分类名称不能为空"
+										pattern="^(?!_)(?!.*?_$)[\u4e00-\u9fa5]{2,10}$" data-bv-regexp-message="分类名称输入格式不对[2~10个汉字]"
+									/>
+								</div>
+							</div>
+							<!-- mobilePhone end -->
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					<button id="submit"  type="submit" data-loading-text="数据正在提交..." class="btn btn-primary">保&nbsp;存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- add end -->
+	<!--  update -->
+	<div class="modal inmodal fade" id="main_update_windows" tabindex="-1" role="document" aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="chat-element">
+                         <small class="pull-left modal-title">更新会员 <span id='msg' style="color: red;"></span></small>
+                        <div class="media-body ">
+                            <small class="pull-right text-navy">
+                            <button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span>
+								<span class="sr-only">Close</span>
+							</button>
+                            </small>
+                   
+                        </div>
+                    </div>
+				</div>
+				<div class="modal-body">
+					<form method="post" data-bv-message="This value is not valid" data-bv-feedbackicons-valid="glyphicon glyphicon-ok" data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+						data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+					>
+						<div class="row">
+							<!-- userName start -->
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="bean_name">
+										<span>会员姓名</span>
+										<span class="help-from-block">
+											<!-- 验证说明 -->
+										</span>
+									</label>
+									<input type="text" class="form-control" id="bean_name" name="bean.name" placeholder="" data-bv-notempty-message="分类名称不能为空"
+										pattern="^(?!_)(?!.*?_$)[\u4e00-\u9fa5]{2,10}$" data-bv-regexp-message="分类名称输入格式不对[2~10个汉字]"
+									/>
+								</div>
+							</div>
+							<!-- userName end -->
+							<!-- accessId start -->
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="bean_access">
+										<span>登录名</span>
+										<span class="help-from-block">
+											<!-- 验证说明 -->
+										</span>
+									</label>
+									<input type="text" class="form-control" id="bean_access" name="bean.access" placeholder="" data-bv-notempty-message="分类名称不能为空"
+										pattern="^(?!_)(?!.*?_$)[\u4e00-\u9fa5]{2,10}$" data-bv-regexp-message="分类名称输入格式不对[2~10个汉字]"
+									/>
+								</div>
+							</div>
+							<!-- accessId end -->
+							<!-- password start -->
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="bean_password">
+										<span>用户密码</span>
+										<span class="help-from-block">
+											<!-- 验证说明 -->
+										</span>
+									</label>
+									<input type="text" class="form-control" id="bean_password" name="bean.password" placeholder="" data-bv-notempty-message="分类名称不能为空"
+										pattern="^(?!_)(?!.*?_$)[\u4e00-\u9fa5]{2,10}$" data-bv-regexp-message="分类名称输入格式不对[2~10个汉字]"
+									/>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="bean_phone">
+										<span>联系电话</span>
+										<span class="help-from-block">
+											<!-- 验证说明 -->
+										</span>
+									</label>
+									<input type="text" class="form-control" id="bean_phone" name="bean.phone" placeholder="" data-bv-notempty-message="分类名称不能为空"
+										pattern="^(?!_)(?!.*?_$)[\u4e00-\u9fa5]{2,10}$" data-bv-regexp-message="分类名称输入格式不对[2~10个汉字]"
+									/>
+								</div>
+							</div>
+							<!-- password end -->
+							<!-- mobilePhone start -->
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="bean_remarks">
+										<span>备注</span>
+										<span class="help-from-block">
+											<!-- 验证说明 -->
+										</span>
+									</label>
+									<input type="text" class="form-control" id="bean_remarks" name="bean.remarks" placeholder="" data-bv-notempty-message="分类名称不能为空"
+										pattern="^(?!_)(?!.*?_$)[\u4e00-\u9fa5]{2,10}$" data-bv-regexp-message="分类名称输入格式不对[2~10个汉字]"
+									/>
+								</div>
+							</div>
+							<!-- mobilePhone end -->
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关&nbsp;闭</button>
+					<button id="submit"  type="button" data-loading-text="数据正在提交..." class="btn btn-primary">更&nbsp;新</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--  update -->
+	<!-- del -->
+	<div class="modal inmodal fade" id="main_delete_windows" tabindex="-1" role="document" aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-lg">
+			>
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="chat-element">
+                         <small class="pull-left modal-title">删除会员 <span id='msg' style="color: red;"></span></small>
+                        <div class="media-body ">
+                            <small class="pull-right text-navy">
+                            <button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span>
+								<span class="sr-only">Close</span>
+							</button>
+                            </small>
+                   
+                        </div>
+                    </div>
+				</div>
+				<div class="modal-body">
+					<h4 style="font-size: 20px;">
+						<span>确认要删除 </span>
+						<span class="error" id="delSize" style="font-size: 20px;"></span>
+						<span>条数据?</span>
+					</h4>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">关&nbsp;闭</button>
+					<button id="submit" opt="delete" type="submit" data-loading-text="数据正在提交..." class="btn btn-primary">删&nbsp;除</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	</div>
+	<!--  del -->
+	<!-- Mainly scripts -->
+	<script src="/business/js/jquery_zy_3.3.1.min.js"></script>
+	<script src="/business/js/popper.min.js"></script>
+	<script src="/business/js/bootstrap.min.js"></script>
+	<script src="/business/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="/business/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<!-- Custom and plugin javascript -->
+	<script src="/business/js/inspinia.js"></script>
+	<script src="/business/js/plugins/pace/pace.min.js"></script>
+	<script src="/business/js/plugins/bootstrap-table-1.15.3/bootstrap-table.min.js"></script>
+	<script src="/business/js/plugins/bootstrap-table-1.15.3/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="/business/module/member/member.js"></script>
+	<script src="/business/js/plugins/table/private.table.js"></script>
+	<script src="/business/js/plugins/table/private.opt.js"></script>
+	<script src="/business/js/plugins/table/private.tools.js"></script>
+	<script src="/business/js/plugins/validator/bootstrapValidator.min.js"></script>
+   
+   <script src="/business/js/plugins/jquery.form.js"></script>
+	
+	<script type="text/javascript">
+		$(function() {
+			loadEmenu('s');
+			privateOpt = new PrivateOpt();
+			privateOpt.initTable({});
+		});
+	</script>
+</body>
+</html>
