@@ -101,7 +101,7 @@ function MyAppTable(params) {
 		intParams.tableParams.sidePagination = "server"; // 表示服务端请求 后台分页
 		intParams.tableParams.totalField = 'total';
 		intParams.tableParams.dataField = 'records';
-		intParams.tableParams.fixedColumns = true;
+		intParams.tableParams.fixedColumns = false;
 		intParams.tableParams.fixedNumber = 2;
 		intParams.tableParams.queryParamsType = '';
 		intParams.tableParams.queryParams = queryParams;

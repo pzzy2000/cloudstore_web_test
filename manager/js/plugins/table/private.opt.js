@@ -39,11 +39,17 @@ $.ajax({
 					return;
 				}
 				
+				var  loginuser = data.result.result.loginUser;
+				
+				$('#login').html(loginuser.name);
+				$('#sysname').html(loginuser.userType.sysPlatform);
+				
+				
 				var e = null;
 
-				for (var i = 0; i < data.result.result.length; i++) {
+				for (var i = 0; i < data.result.result.menuBeans.length; i++) {
 
-					var em = data.result.result[i];
+					var em = data.result.result.menuBeans[i];
 					if (e == null) {
 						e = '<li class="active">' 
 							+ '<a href="#">' 

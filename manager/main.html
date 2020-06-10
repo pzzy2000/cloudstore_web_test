@@ -11,57 +11,55 @@
 <link href="/manager/css/style.css" rel="stylesheet">
 </head>
 <body>
-		<div id="wrapper">
-				<nav class="navbar-default navbar-static-side" role="navigation">
-						<div class="sidebar-collapse">
-								<ul class="nav metismenu" id="side-menu">
-										<li class="nav-header">
-												<div class="dropdown profile-element">
-														<span>
-																<img alt="image" class="img-circle" src="img/profile_small.jpg" />
-																<strong class="font-bold">用户名</strong>
-														</span>
-												</div>
-												<div class="logo-element">IN+</div>
-										</li>
-										
-										
-								</ul>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav metismenu" id="side-menu">
+					<li class="nav-header">
+						<div class="dropdown profile-element">
+							<span>
+								<img alt="image" class="img-circle" src="/manager/img/profile_small.jpg">
+								<strong class="font-bold" id="login" style="padding-left: 20px;font-size: 14px"></strong>
+							</span>
 						</div>
+						<div class="logo-element">IN+</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+					<div class="navbar-header">
+						<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+							<i class="fa fa-bars"></i>
+						</a>
+					</div>
+					<ul class="nav navbar-top-links navbar-right">
+						<li>
+							<a href="login.html" style="font-size: 20px">
+							<samp id="sysname"></samp>
+								<i class="fa fa-sign-out"></i>
+								退出
+							</a>
+						</li>
+					</ul>
 				</nav>
-				<div id="page-wrapper" class="gray-bg dashbard-1">
-						<div class="row border-bottom">
-								<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-										<div class="navbar-header">
-												<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
-														<i class="fa fa-bars"></i>
-												</a>
-										</div>
-										<ul class="nav navbar-top-links navbar-right">
-												<li>
-														<a href="login.html">
-																<i class="fa fa-sign-out"></i>
-																退出
-														</a>
-												</li>
-										</ul>
-								</nav>
-						</div>
-				</div>
+			</div>
 		</div>
-		<!-- Mainly scripts -->
-		<script src="/manager/js/jquery_zy_3.3.1.min.js"></script>
-        <script src="/manager/js/bootstrap.min.js"></script>
-		<script src="/manager/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-		<script src="/manager/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-		<!-- Custom and plugin javascript -->
-		
-		<script src="/manager/js/inspinia.js"></script>
-		<script src="/manager/js/plugins/table/private.opt.js"></script>
-		<script type="text/javascript">
-			$(function() {
-				loadEmenu('all');
-			});
-		</script>
+	</div>
+	<!-- Mainly scripts -->
+	<script src="/manager/js/jquery_zy_3.3.1.min.js"></script>
+	<script src="/manager/js/bootstrap.min.js"></script>
+	<script src="/manager/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="/manager/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<!-- Custom and plugin javascript -->
+	<script src="/manager/js/inspinia.js"></script>
+	<script src="/manager/js/plugins/table/private.opt.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			loadEmenu('all');
+		});
+	</script>
 </body>
 </html>
