@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INSPINIA | Main view</title>
+<link href="/manager/css/bootstrap.min.css" rel="stylesheet">
+<link href="/manager/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="/manager/css/animate.css" rel="stylesheet">
+<link href="/manager/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="/manager/js/plugins/bootstrap-table-1.15.3/bootstrap-table.min.css">
+<link rel="stylesheet" href="/manager/js/plugins/validator/bootstrapValidator.min.css">
+</head>
+<body style="overflow: hidden1;">
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav metismenu" id="side-menu">
+					<li class="nav-header">
+						<div class="dropdown profile-element">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<span class="block m-t-xs font-bold">Example user</span>
+								<span class="text-muted text-xs block">
+									menu
+									<b class="caret"></b>
+								</span>
+							</a>
+							<ul class="dropdown-menu animated fadeInRight m-t-xs">
+								<li>
+									<a class="dropdown-item" href="login.html">Logout</a>
+								</li>
+							</ul>
+						</div>
+						<div class="logo-element">IN+</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div id="page-wrapper" class="gray-bg">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+					<div class="col-lg-10">
+						<div class="navbar-header">
+							<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+								<i class="fa fa-bars"></i>
+							</a>
+						</div>
+						<ol class="breadcrumb" style="padding: 15px 15px 0px 20px; font-size: 16px">
+							<li class="breadcrumb-item">
+								<a href="index.html" id="">主页</a>
+							</li>
+							<li class="breadcrumb-item">
+								<a id="parents"></a>
+							</li>
+							<li class="breadcrumb-item active">
+								<strong id="own"></strong>
+							</li>
+						</ol>
+					</div>
+					<ul class="nav navbar-top-links navbar-right">
+						<li>
+							<a href="#">
+								<i class="fa fa-sign-out"></i>
+								注销
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>
+									供应商信息
+									<small id="msg" style="padding-left: 20px"></small>
+								</h5>
+							</div>
+							<div class="ibox-content">
+								<form method="get" class="form-horizontal">
+									<div class="form-group">
+										<div class="rows">
+											<label class="col-sm-2 control-label">供应商名字</label>
+											<div class="col-sm-4">
+												<input type="text" name="" class="form-control">
+											</div>
+											<label class="col-sm-2 control-label">级别</label>
+											<div class="col-sm-4">
+												<input type="text" name="" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="hr-line-dashed"></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>
+									店铺信息
+									<small id="msg" style="padding-left: 20px"></small>
+								</h5>
+							</div>
+							<div class="ibox-content">
+								<form method="get" class="form-horizontal">
+									<div class="form-group">
+										<div class="rows">
+											<label class="col-sm-2 control-label">店铺名字</label>
+											<div class="col-sm-4">
+												<input type="text" name="" class="form-control">
+											</div>
+											<label class="col-sm-2 control-label">联系电话</label>
+											<div class="col-sm-4">
+												<input type="text" name="" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="hr-line-dashed"></div>
+									<div class="form-group">
+										<div class="rows">
+											<label class="col-sm-2 control-label">店铺告示</label>
+											<div class="col-sm-10">
+												<input type="text" name="" class="form-control">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>
+									营业执照 
+									<small id="msg" style="padding-left: 20px"></small>
+								</h5>
+							</div>
+							<div class="ibox-content">
+								<form method="get" class="form-horizontal">
+									<div class="form-group">
+										<div class="rows">
+											<label class="col-sm-2 control-label">店铺名字</label>
+											<div class="col-sm-4">
+												<input type="text" name="" class="form-control">
+											</div>
+											<label class="col-sm-2 control-label">联系电话</label>
+											<div class="col-sm-4">
+												<input type="text" name="" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="hr-line-dashed"></div>
+									<div class="form-group">
+										<div class="rows">
+											<label class="col-sm-2 control-label">店铺告示</label>
+											<div class="col-sm-10">
+												<input type="text" name="" class="form-control">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--   join  dian shang  -->
+	<!-- Mainly scripts -->
+	<script src="/manager/js/jquery_zy_3.3.1.min.js"></script>
+	<script src="/manager/js/bootstrap.min.js"></script>
+	<script src="/manager/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="/manager/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<!-- Custom and plugin javascript -->
+	<script src="/manager/js/inspinia.js"></script>
+	<script src="/manager/js/plugins/bootstrap-table-1.15.3/bootstrap-table.js"></script>
+	<script src="/manager/js/plugins/bootstrap-table-1.15.3/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="/manager/js/plugins/validator/bootstrapValidator.min.js"></script>
+	<script src="/manager/js/plugins/jquery.form.js"></script>
+	<script src="/manager/js/plugins/select2/select2.full.min.js"></script>
+	<script src="/manager/js/plugins/select2/i18n/zh-CN.js"></script>
+	<link rel="stylesheet" href="/manager/js/plugins/select2/select2.private.css" />
+	<script src="/manager/js/plugins/table/private.table.js"></script>
+	<script src="/manager/js/plugins/table/private.opt.js"></script>
+	<script src="/manager/js/plugins/table/private.tools.js"></script>
+	<script src="/manager/module/module/index.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var params = getQueryParams();
+			var module = params["module"];
+			var parents = params["parents"];
+			var own = params["own"];
+			$('#parents').html(parents);
+			$('#own').html(own);
+			loadEmenu(module);
+			loadinfo();
+		});
+
+		function loadinfo() {
+			ajax({
+				url : '/sys/supplier/mysupplier',
+				data : {
+
+				},
+				success : function(data) {
+					if (data.result.supplier == null) {
+						$('#msg').html("请完善相关资料 ");
+					}
+				}
+			});
+		}
+	</script>
+</body>
+</html>

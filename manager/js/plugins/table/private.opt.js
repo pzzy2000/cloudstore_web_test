@@ -1,11 +1,96 @@
+var auth = '1111-1111-1111-1111';
+
+function   ajaxurl(path){
+	return "http://127.0.0.1:8088"+path;
+}
+
+function   tourl(path){
+	location.assign(path);
+}
+
+function getQueryParams(key)
+{
+	var obj = {};   
+	var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               obj[pair[0]] = decodeURI(pair[1]);
+       }
+       return(obj);
+}
+
+function loadEmenu(key) {
+
+$.ajax({
+			type : 'post',
+			url : ajaxurl('/sys/menu/load?module='+key),
+			cache : false,
+			data : {},
+			dataType : 'json',
+			headers : {"auth" :window.localStorage['auth']==null ?auth:window.localStorage['auth']}, //添加请求头部 
+			cache : false,// false是不缓存，true为缓存
+			async : true,// true为异步，false为同步
+			success : function(data) {
+				
+				if(data.result.code<0){
+					alert(data.result.msg);
+					tourl("/manager/module/login/login.html");
+					return;
+				}
+				
+				var e = null;
+
+				for (var i = 0; i < data.result.result.length; i++) {
+
+					var em = data.result.result[i];
+					if (e == null) {
+						e = '<li class="active">' 
+							+ '<a href="#">' 
+							+ '<i class="fa fa-th-large"></i>' 
+							+ '<span class="nav-label">' + em.name + '</span>' 
+							+ '<span class="fa arrow"></span>'
+								+ '</a>';
+						e = e + '<ul class="nav nav-second-level">';
+						for (var c = 0; c < em.childMenus.length; c++) {
+							var cn = em.childMenus[c];
+							e = e + '<li class="active" ><a href="' + cn.url + '">' + cn.name + '</a></li>';
+						}
+						e = e + '</ul></li>';
+					} else {
+						e = e + '<li class="active">' + '<a href="#">' + '<i class="fa fa-th-large"></i>' + '<span class="nav-label">' + em.name + '</span>'
+								+ '<span class="fa arrow"></span>' + '</a>';
+						e = e + '<ul class="nav nav-second-level">';
+						for (var c = 0; c < em.childMenus.length; c++) {
+							var cn = em.childMenus[c];
+							e = e + '<li ><a href="' + cn.url + '">' + cn.name + '</a></li>';
+						}
+						e = e + '</ul></li>';
+					}
+
+				}
+              
+				$('#side-menu').metisMenu('dispose'); // 参考https://mm.onokumus.com/mm-ajax.html，可以自己研究一下
+				$('#side-menu').append(e);
+				$('#side-menu').metisMenu();
+
+			},
+			error : function(ee) {
+				alert("加载菜单错误  " + ee.statusText);
+			}
+		})
+}
+
+
 // 绑定模态
 function ajax(params) {
 	$.ajax({
 				type : 'post',
-				url : params.url,
+				url : ajaxurl(params.url),
 				cache : false,
 				data : params.data,
 				dataType : 'json',
+				headers : {"auth" :window.localStorage['auth']==null ?auth:window.localStorage['auth']}, //添加请求头部 
 				cache : false,// false是不缓存，true为缓存
 				async : true,// true为异步，false为同步
 				success : function(data) {
@@ -27,6 +112,7 @@ function ajaxForm(form, params) {
 				// data : myData,// 自定义数据参数，视情况添加
 				data : (typeof(params.data) == "undefined") ? {} : params.data,
 				url : params.url, // 请求url
+				headers : {"auth" :window.localStorage['auth']==null ?auth:window.localStorage['auth']}, //添加请求头部 
 				timeout : 5000,
 				success : function(responseText, statusText, xhr, $form) {
 					if (statusText == 'success') {
@@ -209,6 +295,8 @@ function saveModalWin(buttonId, mainTable) {
 	var button = jQuery('#' + buttonId);
 	var modalWin = jQuery('#' + button.attr('id') + "_windows");
 	modalWinSubmit(modalWin, false, null);
+	var form = modalWin.find('form');
+	form.bootstrapValidator();
 	modalWin.on('hide.bs.modal', function() {
 				if (modalWinIsSubmit(modalWin) == true) {
 					errorMsg(modalWin, '正在提交数据,请勿关闭窗口');
@@ -224,9 +312,7 @@ function saveModalWin(buttonId, mainTable) {
 					MyappErrorMsg('数据提交', '正在提交数据请勿重复提交', 1);
 					return;
 				}
-
 				var form = modalWin.find('form');
-				// form.bootstrapValidator();
 				var bootstrapValidator = form.bootstrapValidator('validate');
 				if (form.data('bootstrapValidator').isValid()) {
 					modalWinSubmit(modalWin, true, '正在提交数据请勿重复提交,请勿关闭窗口');
@@ -241,7 +327,7 @@ function saveModalWin(buttonId, mainTable) {
 								data : data,
 								success : function(data) {
 									formReset(modalWin, true);
-									mainTable.instRow(data.result);
+									mainTable.instRow(data.result.result);
 									modalWinSubmit(modalWin, false, '数据提交成功');
 									closeModalWin(modalWin);
 								},

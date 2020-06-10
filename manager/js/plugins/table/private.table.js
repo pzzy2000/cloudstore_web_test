@@ -121,7 +121,7 @@ function MyAppTable(params) {
 				}
 			} else {
 				// res.selectPage.total=10000;
-				return res.selectPage;
+				return res.result.result;
 			}
 		}
 

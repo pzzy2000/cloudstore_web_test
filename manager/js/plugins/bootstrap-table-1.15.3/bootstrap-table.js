@@ -5398,6 +5398,10 @@
 	        if (this._xhr && this._xhr.readyState !== 4) {
 	          this._xhr.abort();
 	        }
+	        
+	        request.beforeSend=function (request) {
+                request.setRequestHeader("auth", window.localStorage['auth']==null ?auth:window.localStorage['auth']);
+            }
 
 	        this._xhr = $.ajax(request);
 	      }
